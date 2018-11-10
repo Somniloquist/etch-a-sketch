@@ -9,14 +9,25 @@ body {
     background: #d32f2f;
 }
 
-.header {
+.navbar {
     color: #ffd600;
+    text-align: center;
+    margin: 50px 0 0 0;
 }
 
-.logo {
-    text-align: center;
+.header {
+    font-family: serif;
 }
-.container {
+.logo {
+    font-family: 'Charmonman', cursive;
+    font-size: 2em;
+    margin: 0 50px;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+.canvas {
     margin: auto;
     height: 700px;
     width: 700px;
@@ -25,6 +36,5 @@ body {
 }
 
 .cell{
-    border: 0.5px solid gray;
     background: #a0a0a0;
 }
