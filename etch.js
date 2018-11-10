@@ -1,15 +1,16 @@
-const gridLength = 100;
-const gridArea = gridLength * gridLength;
-const canvas = document.querySelector('.canvas');
-canvas.setAttribute('style', `grid-template-columns: repeat(${gridLength}, auto);`);
+function createCanvas(canvasLength = 10) {
+    const canvas = document.querySelector('.canvas');
+    const canvasArea = canvasLength * canvasLength;
+    canvas.setAttribute('style', `grid-template-columns: repeat(${canvasLength}, auto);`);
 
-for (i = 0; i < gridArea; i++) {
-    const cell = document.createElement('div');
-    cell.addEventListener('mouseenter', function(e) {
-        this.setAttribute('style', 'background: gray');
-    });
-    cell.classList.add('cell');
-    canvas.appendChild(cell);
+    for (i = 0; i < canvasArea; i++) {
+        const cell = document.createElement('div');
+        cell.addEventListener('mouseenter', function(e) {
+            this.setAttribute('style', 'background: gray');
+        });
+        cell.classList.add('cell');
+        canvas.appendChild(cell);
+    }
 }
 
 function reset() {
@@ -18,3 +19,5 @@ function reset() {
         cells[i].removeAttribute('style');
     }
 };
+
+createCanvas();
