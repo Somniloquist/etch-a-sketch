@@ -12,3 +12,9 @@ for (i = 0; i < gridArea; i++) {
     canvas.appendChild(cell);
 }
 
+function reset() {
+    cells = document.querySelectorAll('.cell[style]');
+    for(i = 0; i < cells.length; i++) {
+        cells[i].removeAttribute('style');
+    }
+};
