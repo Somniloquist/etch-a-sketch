@@ -10,7 +10,8 @@ function drawCanvas(canvasLength = 10) {
     for (i = 0; i < canvasArea; i++) {
         const cell = document.createElement('div');
         cell.addEventListener('mouseenter', function(e) {
-            this.setAttribute('style', `background: ${cursorColor}`);
+            if (rainbowCursor) this.setAttribute('style', `background: ${getRandomColor()}`);
+            else this.setAttribute('style', `background: ${cursorColor}`);
         });
         cell.classList.add('cell');
         canvas.appendChild(cell);
@@ -23,6 +24,13 @@ function deleteCells() {
         canvas.removeChild(canvas.firstChild);
     }
 }
+
+function clear() {
+    const cells = document.querySelectorAll('.cell[style]');
+    for(i = 0; i < cells.length; i++) {
+        cells[i].removeAttribute('style');
+    }
+};
 
 function resizeCanvas() {
     clear();
@@ -42,17 +50,17 @@ function getRandomColor() {
     return `rgba(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)}, ${100})`
 }
 
-function clear() {
-    const cells = document.querySelectorAll('.cell[style]');
-    for(i = 0; i < cells.length; i++) {
-        cells[i].removeAttribute('style');
-    }
-};
+function toggleRainbowCursor() {
+    rainbowCursor = !rainbowCursor;
+}
 
 const clearBtn = document.getElementById('clearCanvas');
 clearBtn.addEventListener('click', clear);
 const resizeBtn = document.getElementById('resizeCanvas');
 resizeBtn.addEventListener('click', resizeCanvas);
+const rainbowBtn = document.getElementById('rainbowCursor');
+rainbowBtn.addEventListener('click', toggleRainbowCursor);
 let cursorColor = 'gray';
+let rainbowCursor = false;
 
 drawCanvas();
