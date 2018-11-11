@@ -1,7 +1,4 @@
-
-// need to find a way to reset div cells
-
-function drawCanvas(canvasLength = 10) {
+function drawCanvas(canvasLength = 16) {
     const canvas = document.querySelector('.canvas');
     const canvasArea = canvasLength * canvasLength;
     canvas.setAttribute('style', `grid-template-columns: repeat(${canvasLength}, auto);`);

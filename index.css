@@ -35,3 +35,18 @@ body {
     grid-template-rows: auto;
     background: #b1afaf;
 }
+
+.btn {
+    padding: 1em;
+    background: #eaeaea;
+    min-width: 100px;
+    border-radius: 15px;
+    border: none;
+}
+.btn:active {
+    transform: scale(0.99);
+}
+
+.btn-bar {
+    margin: 20px;
+}
