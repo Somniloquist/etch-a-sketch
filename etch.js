@@ -6,9 +6,6 @@ function drawCanvas(canvasLength = 10) {
     const canvasArea = canvasLength * canvasLength;
     canvas.setAttribute('style', `grid-template-columns: repeat(${canvasLength}, auto);`);
 
-    // delete existing cells on the canvas
-    deleteCells();
-
     // fill the canvas with cells
     for (i = 0; i < canvasArea; i++) {
         const cell = document.createElement('div');
@@ -29,16 +26,12 @@ function deleteCells() {
 
 function resizeCanvas() {
     clear();
+    deleteCells();
     drawCanvas(getCanvasSize());
 }
 
 function getCanvasSize() {
     return prompt('Enter the amount of squares for each side of the canvas.');
-}
-
-
-function setCursorColor(color = 'gray') {
-    cursorColor = color;
 }
 
 function getRandomInt(max) {
