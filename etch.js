@@ -57,10 +57,16 @@ function getRandomColor() {
     return `rgba(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)}, ${100})`
 }
 
+function toggleRainbowCursor() {
+    rainbowCursor = !rainbowCursor;
+}
+
 const clearBtn = document.getElementById('clearCanvas');
 clearBtn.addEventListener('click', clear);
 const resizeBtn = document.getElementById('resizeCanvas');
 resizeBtn.addEventListener('click', resizeCanvas);
+const rainbowBtn = document.getElementById('rainbowCursor');
+rainbowBtn.addEventListener('click', toggleRainbowCursor);
 let cursorColor = 'gray';
 let rainbowCursor = false;
 
